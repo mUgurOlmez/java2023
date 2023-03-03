@@ -1,4 +1,4 @@
-package kodlama.io.rentACar.entities.concretes;
+package kodlama.io.programmingLanguages.entities;
 
 import java.util.List;
 
@@ -11,27 +11,28 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.*;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "brands")
+@Table(name = "languages")
 @Getter//getter
 @Setter//setter
 @AllArgsConstructor//parametreli constructor
 @NoArgsConstructor//parametresiz constructor
 @Entity
-public class Brand {
+
+public class Language {
 	@Id//pk
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//otomatik id veriyor
 	@Column(name = "id")
 	private int id;//PK primary key
 	
 	
-	@Column(name = "name")//tablodaki ismi
+	
+	@Column(name = "name",unique = true)//tablodaki ismi
 	private String name;//class ismi
 	
-	@OneToMany(mappedBy = "brand")
-	List<Model> models;
-
+	@OneToMany(mappedBy = "language")
+	List<Framework> frameworks;
 }

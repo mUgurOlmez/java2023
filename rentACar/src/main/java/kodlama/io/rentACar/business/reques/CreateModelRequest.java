@@ -11,10 +11,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateBrandRequest {
+public class CreateModelRequest {
 	@NotNull
 	@NotBlank
-	@Size(min=3, max=20)
+	@Size(min=3, max=20)//karakter  boyutu
 	private String name;
+
+	@NotNull
+	@NotBlank
+	@Size
+	private int brandId;
+	
 	
 }
